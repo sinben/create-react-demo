@@ -1,44 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Demo
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Node
+https://nodejs.org/en/
 
-### `yarn start`
+Yarn (optional) 
+https://yarnpkg.com/lang/en/docs/install/#windows-stable
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Create react app
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+https://create-react-app.dev/
 
-### `yarn test`
+npx create-react-app imp --template typescript
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Issues with connecting and on Equinor Machine?
 
-### `yarn build`
+https://www.jhipster.tech/configuring-a-corporate-proxy/
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm config set proxy http://www-proxy.statoil.no:80/
+npm config set https-proxy http://www-proxy.statoil.no:80/
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+yarn config set proxy http://www-proxy.statoil.no:80/
+yarn config set https-proxy http://www-proxy.statoil.no:80/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+git config --global http.proxy http://www-proxy.statoil.no:80/
+git config --global https.proxy http://www-proxy.statoil.no:80/
 
-### `yarn eject`
+Also note, I have more success with Git Bash than cmd in some cases, like Azure login.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Installed dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### CSS-to-Js framework.
+yarn add styled-components
+To style components instead of using CSS/SCSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://cssinjs.org/?v=v10.0.3
+https://www.styled-components.com/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Alternatives:
+https://github.com/MicheleBertoli/css-in-js
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### State-management
+yarn add redux
+To handle state in the redux application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://redux.js.org/
+https://dev.to/jaffparker/you-might-not-need-redux-k4e
+
+### Asynchronous programming is hard
+yarn add redux-saga
+
+https://redux-saga.js.org/
+
+Alternatives:
+https://redux-observable.js.org/
+
+
