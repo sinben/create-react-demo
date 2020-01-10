@@ -58,3 +58,5 @@ Alternatives:
 https://redux-observable.js.org/
 
 
+## Step 2
+Added a simple model and a list
