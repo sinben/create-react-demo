@@ -1,11 +1,11 @@
 import * as React from 'react'
-import Imp from '../models/imp';
+import Imp from '../../models/imp';
 
 interface Props {
     imp: Imp | undefined,
 }
 
-const ImpDetail: React.FC<Props> = (props: Props) => {
+const View: React.FC<Props> = (props: Props) => {
     const { imp } = props;
 
     if(imp == undefined){
@@ -19,4 +19,4 @@ const ImpDetail: React.FC<Props> = (props: Props) => {
 }
 
 
-export default ImpDetail;
+export default View;

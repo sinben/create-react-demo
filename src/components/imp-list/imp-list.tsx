@@ -1,5 +1,5 @@
-import ImpList from "../components/imp-list";
-import list from  "../mock-imp-list"
+import ImpListView from "./imp-list-view";
+import list from "../../mock-imp-list"
 
 import React from "react";
 import {useHistory} from "react-router";
@@ -14,7 +14,7 @@ const View: React.FC = () => {
         };
 
     return (
-        <ImpList imps={list} onClicked={onClick}/>
+        <ImpListView imps={list} onClicked={onClick}/>
     )
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router";
-import List from "./pages/imp-overview";
-import Details from "./pages/imp-details";
+import List from "./components/imp-list/imp-list";
+import Details from "./components/imp-details/imp-details";
 
 const App: React.FC = () => {
   return (
