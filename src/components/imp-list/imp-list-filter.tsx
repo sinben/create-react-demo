@@ -1,9 +1,20 @@
-import ImpListView from "./imp-list-view";
-import service from "./../../services/imp-service"
 import React, {useEffect, useState, ChangeEvent} from "react";
-import {useHistory} from "react-router";
-import Imp from "../../models/imp";
+import styled from "styled-components";
 
+const InputWrapper = styled.div`
+  padding: 1rem 0.5rem ;
+  
+`;
+
+const Input = styled.input`
+  width: 100%;
+  min-height: 1rem;
+  border-radius: 0.5rem;
+  border-style: hidden;
+  background-color: white;
+  padding: 1rem;
+  
+`;
 
 interface Props {
     onFilter: (filter : string) => void
@@ -17,7 +28,9 @@ const View: React.FC<Props> = (props: Props) => {
     };
 
     return (
-        <input type="text" placeholder="Search" onChange={onChange}/>
+        <InputWrapper>
+            <Input type="text" placeholder="Search" onChange={onChange}/>
+        </InputWrapper>
     )
 };
 
