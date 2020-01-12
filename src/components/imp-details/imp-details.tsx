@@ -1,36 +1,47 @@
-import list from "../../mock-imp-list"
-import React, {useEffect, useState} from "react";
-import { useParams} from "react-router";
+import React, {useEffect} from "react";
+import {useParams} from "react-router";
 import ImpDetailView from "./imp-detail-view";
-import service from "../../services/imp-service";
 import Imp from "../../models/imp";
+import {State} from "../../redux/reducers";
+import {bindActionCreators} from "redux";
+import {listImps} from "../../redux/actions/imp";
+import {connect} from "react-redux";
+import {RemoteData} from "../../models/remote-data";
 
-const View: React.FC = () => {
+interface ImpListProps {
+    imps: Imp[],
+    status: RemoteData,
+    listImps: () => void
+}
+
+const View: React.FC<ImpListProps> = ({imps, status, listImps}) => {
     let { id  } = useParams();
-
-    const [imp, setImp] = useState<Imp | undefined>(undefined);
-
-    //https://reactjs.org/docs/hooks-state.html
-    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     //https://reactjs.org/docs/hooks-effect.html
     useEffect(() => {
-        async function getList() {
-            setIsLoading(true);
-            let res  = await service.list();
-            let list = res.data;
-            const imp = list.find((i : Imp) => i.id === Number(id));
-            setImp(imp);
-            setIsLoading(false);
+        if(status === RemoteData.NOT_ASKED) {
+            listImps();
         }
-        getList();
     }, []);
 
 
+    const imp = (imps || []).find((i : Imp) => i.id === Number(id));
+
     return (
-        <ImpDetailView isLoading={isLoading} imp={imp} />
+        <ImpDetailView isLoading={(status === RemoteData.NOT_ASKED || status === RemoteData.LOADING)} imp={imp} />
     )
 };
 
-export default View;
 
+
+const mapStateToProps = (state : State) => {
+    return {
+        status: state.imps.status,
+        imps: state.imps.value
+    };
+};
+
+const mapDispatchToProps =  (dispatch:any) => ({
+    listImps: bindActionCreators(listImps, dispatch)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(View as any);
