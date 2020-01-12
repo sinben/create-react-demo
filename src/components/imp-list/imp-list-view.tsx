@@ -3,11 +3,15 @@ import Imp from '../../models/imp';
 
 interface Props {
     imps: Imp[],
+    isLoading: boolean,
     onClicked: (id: number) => void
 }
 
 const View: React.FC<Props> = (props: Props) => {
-    const { imps, onClicked } = props;
+    const { imps, onClicked, isLoading} = props;
+    if(isLoading){
+        return <div>Keep loading, loading, loading wow</div>
+    }
     return (
         <ul>
             {
