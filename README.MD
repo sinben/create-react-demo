@@ -104,12 +104,3 @@ Needs a webserver (nginx or node).
 Example google create react app docker nginx 
 
 
-#Demo
-
-
-##Prerequisite
-Node: https://nodejs.org/en/
-
-##Create react app
-https://reactjs.org/docs/create-a-new-react-app.html
-
