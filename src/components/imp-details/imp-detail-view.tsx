@@ -3,10 +3,15 @@ import Imp from '../../models/imp';
 
 interface Props {
     imp: Imp | undefined,
+    isLoading: boolean
 }
 
 const View: React.FC<Props> = (props: Props) => {
-    const { imp } = props;
+    const { imp, isLoading } = props;
+
+    if(isLoading){
+        return <div>Loading</div>
+    }
 
     if(imp == undefined){
         return <div>Not found</div>
